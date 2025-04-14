@@ -1,12 +1,9 @@
 {
     "name": "My Local TON App",
-    "url": "https://your-ngrok-url.ngrok.io",
-    "iconUrl": "https://your-ngrok-url.ngrok.io/logo.png",
-    "termsOfUseUrl": "https://your-ngrok-url.ngrok.io/terms",
-    "privacyPolicyUrl": "https://your-ngrok-url.ngrok.io/privacy",
+    "url": "https://github.com/FedorZaytsev",
     "connectivity": {
         "walletConnect": {
-        "bridgeUrl": "https://bridge.tonapi.io/bridge"
+            "bridgeUrl": "https://bridge.tonapi.io/bridge"
         }
     }
 }
