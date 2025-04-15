@@ -1,10 +1,8 @@
 import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
 import { getHttpEndpoint } from '@orbs-network/ton-access';
-import viteLogo from '/vite.svg'
 import './App.css'
 import { TonConnectButton } from '@tonconnect/ui-react'
-import { address, Address, TonClient } from '@ton/ton'
+import { Address, TonClient } from '@ton/ton'
 import { Counter } from './contracts/Counter'
 import Alert from './components/Alert'
 import LogView from './components/LogView'
@@ -21,12 +19,7 @@ function useAsyncInitialize<T>(func: () => Promise<T>, deps: any[] = []) {
   return state;
 }
 
-
-
 const contractAddress = "EQCGPnGpjYVuax7Tpv3-SMRDdME_zhKLkOBjYeYqJImWqjRT"
-
-
-
 
 function initialize(setError: (error: string | null) => void) {
 
