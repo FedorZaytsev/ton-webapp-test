@@ -8,7 +8,6 @@
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 
-
     transform: translateX(-50%);
     padding: 10px; /* Optional: add padding */
     z-index: 1000; /* Ensure it stays on top */
