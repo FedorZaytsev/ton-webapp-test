@@ -1,5 +1,6 @@
 import { Sender, SenderArguments } from '@ton/core';
 import { TonConnectUI, useTonConnectUI } from '@tonconnect/ui-react';
+import { logs } from '../components/Logs'
 
 
 function createSender(tonConnectUI?: TonConnectUI ): Sender {
@@ -9,9 +10,11 @@ function createSender(tonConnectUI?: TonConnectUI ): Sender {
     return {
         send: async (args: SenderArguments) => {
             if (!tonConnectUI.connected) {
+                logs.log('TonClient is not initialized');
                 throw new Error('TonConnect is not connected');
             }
 
+            logs.log('sending transaction '+args.toString());
             tonConnectUI.sendTransaction({
                 messages: [
                     {

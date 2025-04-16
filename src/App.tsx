@@ -68,6 +68,8 @@ function initialize(setError: (error: string | null) => void) {
     if (!contract) return;
     const reload = setInterval(() => {
       contract.get().then((val) => {
+        if (val == counter) return;
+        logs.log('Counter value: ' + val);
         setCounterVal(val);
       })
     }, 1000);
