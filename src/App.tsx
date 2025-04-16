@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { useTonConnectUI } from '@tonconnect/ui-react';
 import { getHttpEndpoint } from '@orbs-network/ton-access';
 import './App.css'
 import { TonConnectButton } from '@tonconnect/ui-react'
@@ -67,10 +66,13 @@ function initialize(setError: (error: string | null) => void) {
 
   useEffect(() => {
     if (!contract) return;
-    setCounterVal(null);
-    contract.get().then((val) => {
-      setCounterVal(val);
-    })
+    const reload = setInterval(() => {
+      contract.get().then((val) => {
+        setCounterVal(val);
+      })
+    }, 1000);
+
+    return () => clearInterval(reload);
   }, [contract]);
 
   return {
@@ -90,7 +92,7 @@ function initialize(setError: (error: string | null) => void) {
 
 function App() {
   const [error, setError] = useState<string | null>(null);
-  const {counter, address, contract, sendIncrement} = initialize(setError);
+  const {counter, address, sendIncrement} = initialize(setError);
 
   const simulateError = () => {
     setError('An unexpected error occurred!');
